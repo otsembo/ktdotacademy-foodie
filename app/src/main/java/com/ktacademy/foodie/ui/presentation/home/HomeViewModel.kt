@@ -1,6 +1,5 @@
 package com.ktacademy.foodie.ui.presentation.home
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ktacademy.foodie.data.model.MealItem
@@ -9,7 +8,6 @@ import com.ktacademy.foodie.data.repository.FoodRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
-import java.lang.Exception
 
 class HomeViewModel(
     private val repository: FoodRepository

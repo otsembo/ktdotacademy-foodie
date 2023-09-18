@@ -15,13 +15,21 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.ktacademy.foodie.data.repository.FoodRepository
 import com.ktacademy.foodie.ui.presentation.home.HomeViewModel
+import com.ktacademy.foodie.ui.presentation.search.SearchViewModel
 import com.ktacademy.foodie.ui.theme.FoodieTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            val homeViewModel = HomeViewModel(repository = FoodRepository())
+
+            // Data Sources
+            val foodRepository = FoodRepository()
+
+            // UI ViewModels
+            val homeViewModel = HomeViewModel(repository = foodRepository)
+            val searchViewModel = SearchViewModel(repository = foodRepository)
+
             FoodieTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
