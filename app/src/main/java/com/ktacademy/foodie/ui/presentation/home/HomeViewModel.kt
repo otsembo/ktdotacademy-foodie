@@ -19,21 +19,18 @@ class HomeViewModel(
         initScreenDetails()
     }
 
-    private val _homeState: MutableStateFlow<AppResource<MealItem>> =
+    private val _homeState: MutableStateFlow<AppResource<MealItem>?> =
         MutableStateFlow(AppResource.Loading())
-    val homeState: StateFlow<AppResource<MealItem>> = _homeState
+    val homeState: StateFlow<AppResource<MealItem>?> = _homeState
 
     private fun initScreenDetails(){
         viewModelScope.launch {
             try {
-                Log.d("TAG", "initScreenDetails:  start")
                 val mealItem = repository.getRandomFood()
-                Log.d("TAG", "initScreenDetails:  FOOD")
                 _homeState.emit(AppResource.Success(body = mealItem, status = "Success"))
             }catch (e: Exception){
                 _homeState.emit(AppResource.Error(status = "An error occurred"))
             }
-            Log.d("INIT SCREEN", "initScreenDetails: ${homeState.value}")
         }
     }
 
