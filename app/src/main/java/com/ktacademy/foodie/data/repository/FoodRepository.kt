@@ -1,5 +1,6 @@
 package com.ktacademy.foodie.data.repository
 
+import android.util.Log
 import com.ktacademy.foodie.data.model.MealItem
 import com.ktacademy.foodie.data.network.MealApi
 import com.ktacademy.foodie.data.network.MealApiBuilder
