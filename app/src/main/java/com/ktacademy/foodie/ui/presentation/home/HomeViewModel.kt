@@ -27,7 +27,7 @@ class HomeViewModel(
                 val mealItem = repository.getRandomFood()
                 _homeState.emit(AppResource.Success(body = mealItem, status = "Success"))
             }catch (e: Exception){
-                _homeState.emit(AppResource.Error(status = "An error occurred"))
+                _homeState.emit(AppResource.Error(status = "An error occurred\n${e.localizedMessage}"))
             }
         }
     }
